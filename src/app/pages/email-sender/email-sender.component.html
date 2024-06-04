@@ -1,0 +1,48 @@
+<form class="row g-3" [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col-md-4 mt-3">
+            <label for="inputState" class="form-label">Send To</label>
+            <select name="project" formControlName="sendTo" class="form-select" required>
+                <option selected value="">Please select</option>
+                <option *ngFor="let opt of emailSenders" [ngValue]="opt">{{opt.name}}</option>
+              </select>
+            <div *ngIf="submitted && f.sendTo.errors" class="input-error">
+              <div *ngIf="f.sendTo.errors.required">This field is required</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mt-3">
+          <label for="inputSubject" class="form-label" for="validationServer01">Email Subject</label>
+          <input type="text" class="form-control" placeholder="Email Subject" formControlName="subject" required>
+          <div *ngIf="submitted && f.subject.errors" class="input-error">
+            <div *ngIf="f.subject.errors.required">This field is required</div>
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mt-3">
+          <label for="inputToName" class="form-label" for="validationServer01">To name</label>
+          <input type="text" class="form-control" placeholder="Dear {To name}" formControlName="toName" required>
+          <div *ngIf="submitted && f.toName.errors" class="input-error">
+            <div *ngIf="f.toName.errors.required">This field is required</div>
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mt-3">
+            <label for="inputEmailContent" class="form-label" for="floatingTextarea">Message</label>
+            <textarea class="form-control" placeholder="Write you email body" formControlName="emailContent" required></textarea>
+            <div *ngIf="submitted && f.emailContent.errors" class="input-error">
+              <div *ngIf="f.emailContent.errors.required">This field is required</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Send</button>
+    </div>
+</form>
