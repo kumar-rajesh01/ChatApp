@@ -10,7 +10,7 @@
   <a href="send-sms">Send SMS</a>
   <a href="send-email">Send Email</a>
 
-  <a class="logOutBtn d-flex align-items-center text-white text-decoration-none" aria-expanded="false" href="#">
+  <a class="logOutBtn d-flex align-items-center text-white text-decoration-none" aria-expanded="false" (click)="logout()">
     <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
     <span class="d-none d-sm-inline mx-1">Logout</span>
   </a>
@@ -20,7 +20,7 @@
   <nav class="navbar navbar-expand-lg text-white" style="background-color: #212529;">
     <div class="text-white ms-1">
       <a class="closebtn ms-1 me-1" (click)="openNav()" *ngIf="isOpen">☰</a>
-      <a class="navbar-brand text-white" href="#">Dashboard</a>
+      <a class="navbar-brand text-white">Dashboard</a>
     </div>
   </nav>
   <div class="px-4 mt-3">

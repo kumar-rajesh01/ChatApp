@@ -33,7 +33,8 @@ export class LayoutComponent {
       this.openNav();
   }
 
-  Logout() {
+  logout() {
+    localStorage.removeItem("token");
     this.router.navigateByUrl("/login")
   }
 
