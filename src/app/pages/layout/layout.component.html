@@ -1,45 +1,29 @@
-<div class="container-fluid">
-    <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                <a class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <span class="fs-5 d-none d-sm-inline">Web Chat</span>
-                </a>
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li class="nav-item">
-                        <a href="dashboard" class="nav-link align-middle px-0">
-                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="send-sms" class="nav-link align-middle px-0">
-                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Send SMS</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="send-email" class="nav-link align-middle px-0">
-                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Send Email</span>
-                        </a>
-                    </li>
-                </ul>
-                <hr>
-                <div class="dropdown pb-4">
-                    <a class="d-flex align-items-center text-white text-decoration-none" aria-expanded="false" href="#">
-                        <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                        <span class="d-none d-sm-inline mx-1">Logout</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col" style="padding: 0;">
-            <nav class="navbar navbar-expand-lg bg-dark text-white">
-              <div class="container-fluid text-white">
-                <a class="navbar-brand text-white" href="#">Dashboard</a>
-              </div>
-            </nav>
-            <div class="px-4 mt-3">
-                <router-outlet></router-outlet>
-            </div>
-        </div>
+<div id="mySidebar" class="sidebar" style="width: 250px;">
+  <a href="javascript:void(0)"> 
+    <span style="color: white; float: left;font-size: 25px !important;">Web Chat</span>
+    <a class="closebtn" (click)="closeNav()" *ngIf="!isOpen" style="font-size: 26px; background-color: #212529;">
+      ☰
+    </a>
+  </a>
+  <hr/>
+  <a href="dashboard">Dashboard</a>
+  <a href="send-sms">Send SMS</a>
+  <a href="send-email">Send Email</a>
+
+  <a class="logOutBtn d-flex align-items-center text-white text-decoration-none" aria-expanded="false" href="#">
+    <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+    <span class="d-none d-sm-inline mx-1">Logout</span>
+  </a>
+</div>
+
+<div id="main" style="margin-left: 250px; padding: 0;">
+  <nav class="navbar navbar-expand-lg text-white" style="background-color: #212529;">
+    <div class="text-white ms-1">
+      <a class="closebtn ms-1 me-1" (click)="openNav()" *ngIf="isOpen">☰</a>
+      <a class="navbar-brand text-white" href="#">Dashboard</a>
     </div>
+  </nav>
+  <div class="px-4 mt-3">
+    <router-outlet></router-outlet>
   </div>
+</div>
